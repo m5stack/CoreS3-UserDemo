@@ -9,11 +9,25 @@ using namespace Page;
     height: 73px
 */
 
+
+
+
 LV_IMG_DECLARE(menu_wifi);
-LV_IMG_DECLARE(menu_cam);
+
+#if defined(M5CORES3)
+    LV_IMG_DECLARE(menu_cam);
+#elif defined(M5CORES3SE)
+    LV_IMG_DECLARE(menu_cam_se);
+#endif
+
 LV_IMG_DECLARE(menu_mic);
 LV_IMG_DECLARE(menu_power);
-LV_IMG_DECLARE(menu_imu);
+
+#if defined(M5CORES3)
+    LV_IMG_DECLARE(menu_imu);
+#elif defined(M5CORES3SE)
+    LV_IMG_DECLARE(menu_imu_se);
+#endif
 LV_IMG_DECLARE(menu_sd);
 LV_IMG_DECLARE(menu_touch);
 LV_IMG_DECLARE(menu_i2c);
@@ -21,10 +35,18 @@ LV_IMG_DECLARE(menu_sys);
 
 static const lv_img_dsc_t* menu_img_pressed_list[] = {
     &menu_wifi,
+#if defined(M5CORES3)
     &menu_cam,
+#elif defined(M5CORES3SE)
+    &menu_cam_se,
+#endif
     &menu_mic,
     &menu_power,
+#if defined(M5CORES3)
     &menu_imu,
+#elif defined(M5CORES3SE)
+    &menu_imu_se,
+#endif
     &menu_sd,
     &menu_touch,
     &menu_i2c,
@@ -32,9 +54,14 @@ static const lv_img_dsc_t* menu_img_pressed_list[] = {
 };
 
 void HomeMenuView::Create(lv_obj_t* root) {
-
+#if defined(M5CORES3)
     ui.img_bg = lv_img_create(root);
     lv_img_set_src(ui.img_bg, ResourcePool::GetImage("menu_bg"));
+#elif defined(M5CORES3SE)
+    ui.img_bg_se = lv_img_create(root);
+    lv_img_set_src(ui.img_bg_se, ResourcePool::GetImage("menu_bg_se"));
+#endif
+
 
     for (size_t i = 0; i < 8; i++)
     {

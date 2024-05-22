@@ -98,10 +98,19 @@ void AppWiFi::onEvent(lv_event_t* event) {
             (const uint8_t*)ResourcePool::GetWav("select_0_5s"), ~0u, 1, 1);
         if (obj == instance->View.ui.imgbtn_home) {
             instance->_Manager->Replace("Pages/HomeMenu");
-        } else if (obj == instance->View.ui.imgbtn_next) {
+        } 
+    #if defined(M5CORES3)
+        else if (obj == instance->View.ui.imgbtn_next) {
             USBSerial.print("AppWiFi -> AppCamera\r\n");
             instance->_Manager->Replace("Pages/AppCamera");
-        } else if (obj == instance->View.ui.btn_top_center) {
+        } 
+    #elif defined(M5CORES3SE)
+        else if (obj == instance->View.ui.imgbtn_next) {
+            Serial.print("AppCamera -> AppMic\r\n");
+            instance->_Manager->Replace("Pages/AppMic");
+        }
+    #endif
+        else if (obj == instance->View.ui.btn_top_center) {
             instance->Model.Scan();
             instance->scan_done = false;
             lv_obj_clear_flag(instance->View.ui.label_scaning,

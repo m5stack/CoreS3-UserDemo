@@ -125,7 +125,20 @@ void AppPower::onEvent(lv_event_t* event) {
                 (const uint8_t*)ResourcePool::GetWav("select_0_5s"), ~0u, 1, 1);
             if (obj == instance->View.ui.imgbtn_home) {
                 instance->_Manager->Replace("Pages/HomeMenu");
-            } else if (obj == instance->View.ui.imgbtn_next) {
+            } 
+        #if defined(M5CORES3)
+            else if (obj == instance->View.ui.imgbtn_next) {
+                Serial.print("AppPower -> AppIMU\r\n");
+                instance->_Manager->Replace("Pages/AppIMU");
+            } 
+        #elif defined(M5CORES3SE)
+            else if (obj == instance->View.ui.imgbtn_next) {
+                Serial.println("AppSD");
+                instance->_Manager->Replace("Pages/AppSD");
+            }
+        #endif
+            
+            else if (obj == instance->View.ui.imgbtn_next) {
                 USBSerial.print("AppPower -> AppIMU\r\n");
                 instance->_Manager->Replace("Pages/AppIMU");
             } else if (obj == instance->View.ui.imgbtn_usb) {
