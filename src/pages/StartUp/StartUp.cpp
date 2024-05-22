@@ -67,10 +67,16 @@ void StartUp::Update() {
     if (M5.Display.getBrightness() < 100) {
         M5.Display.setBrightness(M5.Display.getBrightness() + 5);
     }
-
+#if defined(M5CORES3)
     if (count > 50) {
         lv_obj_clear_flag(View.ui.img_cores3_diagram, LV_OBJ_FLAG_HIDDEN);
     }
+#elif defined(M5CORES3SE)
+    if (count > 50) {
+        lv_obj_clear_flag(View.ui.img_cores3_diagram_se, LV_OBJ_FLAG_HIDDEN);
+    }
+#endif
+    
     count++;
 }
 

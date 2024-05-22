@@ -30,16 +30,10 @@ static void Resource_Init() {
     IMPORT_FONT(alibaba_pht_26);
 
     /* Import Images */
-    IMPORT_IMG(app_camera);
-    IMPORT_IMG(app_camera_als);
-    IMPORT_IMG(app_camera_als_ps);
-    IMPORT_IMG(app_camera_ps);
     IMPORT_IMG(app_i2c_internal);
     IMPORT_IMG(app_i2c_pa);
     IMPORT_IMG(app_i2c_pb);
     IMPORT_IMG(app_i2c_pc);
-    IMPORT_IMG(app_imu_graphic);
-    IMPORT_IMG(app_imu_raw);
     IMPORT_IMG(app_mic);
     IMPORT_IMG(app_power_ii);
     IMPORT_IMG(app_power_io);
@@ -60,20 +54,34 @@ static void Resource_Init() {
     IMPORT_IMG(background);
     IMPORT_IMG(ball);
     IMPORT_IMG(compass_face);
-    IMPORT_IMG(core_text);
-    IMPORT_IMG(cores3_diagram);
     IMPORT_IMG(cross);
     IMPORT_IMG(failed);
     IMPORT_IMG(home_p);
     IMPORT_IMG(home_r);
     IMPORT_IMG(info_text);
-    IMPORT_IMG(menu_bg);
-    IMPORT_IMG(menu);
     IMPORT_IMG(next_p);
     IMPORT_IMG(next_r);
     IMPORT_IMG(pass);
+   
+#if defined(M5CORES3)
     IMPORT_IMG(s3_text);
-
+    IMPORT_IMG(app_camera);
+    IMPORT_IMG(app_camera_als);
+    IMPORT_IMG(app_camera_als_ps);
+    IMPORT_IMG(app_camera_ps);
+    IMPORT_IMG(app_imu_graphic);
+    IMPORT_IMG(app_imu_raw);
+    IMPORT_IMG(core_text);
+    IMPORT_IMG(cores3_diagram);
+    IMPORT_IMG(menu_bg);
+    IMPORT_IMG(menu);
+#elif defined(M5CORES3SE)
+    IMPORT_IMG(s3_text_se);
+    IMPORT_IMG(menu_se);
+    IMPORT_IMG(menu_bg_se);
+    IMPORT_IMG(cores3_diagram_se);
+    IMPORT_IMG(core_text_se);
+#endif
     /* Import WAV */
     IMPORT_WAV(poweron_2_5s, 441538);
     IMPORT_WAV(select_0_5s, 88738);

@@ -12,7 +12,12 @@ class HomeMenuView {
 
    public:
     struct {
+    #if defined(M5CORES3)
         lv_obj_t* img_bg;
+    #elif defined(M5CORES3SE)
+        lv_obj_t* img_bg_se;
+    #endif
+        
         lv_obj_t* imgbtn_list[9];
     } ui;
 
