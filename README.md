@@ -1,7 +1,14 @@
-## M5CoreS3 User Demo
+## M5CoreS3 & M5CoreS3SE User Demo
 
 You may encounter the "cam_task canary ..." error, please consider replacing the
 libesp32-camera.a(under pio package folder) to lib/libesp32-camera.a
+
+### How to change board
+
+1. Click PIO environment switch button
+    ![](./docs/pio_env_change.png)
+2. Select M5CoreS3 or M5CoreS3SE env
+    ![](./docs/pio_env_choose.png)
 
 ### Build info:
 ```bash

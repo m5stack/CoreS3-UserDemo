@@ -1,7 +1,7 @@
 #ifndef __CONFIG_H
 #define __CONFIG_H
 
-#define DEMO_VERSION "0.5"
+#define DEMO_VERSION "0.6"
 
 #define GC0308_ADDR  0x21
 #define LTR553_ADDR  0x23

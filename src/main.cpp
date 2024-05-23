@@ -24,7 +24,11 @@ void setup() {
     USBSerial.begin(15200);
     M5.begin();
 
+#if defined(M5CORES3)
     USBSerial.printf("M5CoreS3 User Demo, Version: %s\r\n", DEMO_VERSION);
+#elif defined(M5CORES3SE)
+    USBSerial.printf("M5CoreS3SE User Demo, Version: %s\r\n", DEMO_VERSION);
+#endif
 
     // BM8563 Init (clear INT)
     M5.In_I2C.writeRegister8(0x51, 0x00, 0x00, 100000L);
